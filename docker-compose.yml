@@ -1,0 +1,23 @@
+version: '3.7'
+services:
+  homeassistant:
+    restart: unless-stopped
+    container_name: homeassistant
+    image: "ghcr.io/home-assistant/raspberrypi3-homeassistant:${DOCKER_IMAGE_HA_VER}"
+
+  deconz:
+    depends_on:
+     - homeassistant
+    restart: unless-stopped
+    container_name: deconz
+    image: deconzcommunity/deconz:${DOCKER_IMAGE_DECONZ_VER}
+
+  zwavejs2mqtt:
+    depends_on:
+     - homeassistant 
+    restart: unless-stopped
+    container_name: zwavejs2mqtt
+    image: zwavejs/zwavejs2mqtt:${DOCKER_IMAGE_ZWJS_VER}
+    ports:
+     - 3000:3000
+     - 8091:8091 

@@ -1,0 +1,5 @@
+deconz-config/*
+zwavejs-config/*
+ha-config/*
+.env
+
