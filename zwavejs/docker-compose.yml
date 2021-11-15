@@ -8,7 +8,6 @@ services:
       # For security improvements, you should do this with a more suitable method,
       # like Docker Secretes
       - SESSION_SECRET=${CONF_ZWJS_SESSION_SECRET}
-      - TZ=Europe/Oslo
     networks:
       - zwave
     devices:
@@ -16,7 +15,7 @@ services:
     volumes:
       - ~/git/ha/zwavejs-config:/usr/src/app/store
     ports:
-    # !Unsecured!
+    # !Unsecured! 
      - 3000:3000 # WS <-> HA
      - 8091:8091 # WebUI
 networks:
