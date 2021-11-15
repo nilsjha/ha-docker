@@ -18,6 +18,3 @@ services:
     restart: unless-stopped
     container_name: zwavejs2mqtt
     image: zwavejs/zwavejs2mqtt:${DOCKER_IMAGE_ZWJS_VER}
-    ports:
-     - 3000:3000
-     - 8091:8091 

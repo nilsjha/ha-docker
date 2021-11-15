@@ -8,18 +8,17 @@ services:
       # For security improvements, you should do this with a more suitable method,
       # like Docker Secretes
       - SESSION_SECRET=${CONF_ZWJS_SESSION_SECRET}
-      # Uncomment if you want logs time and dates to match your timezone instead of UTC
-      # Available at https://en.wikipedia.org/wiki/List_of_tz_database_time_zones
-      #- TZ=America/New_York
+      - TZ=Europe/Oslo
     networks:
       - zwave
     devices:
       - ${HW_USB_RF_ZWAVE}:/dev/zwave
     volumes:
       - ~/git/ha/zwavejs-config:/usr/src/app/store
-    expose:
-      - '8091' # port for web interface
-      - '3000' # port for Z-Wave JS websocket server
+    ports:
+    # !Unsecured!
+     - 3000:3000 # WS <-> HA
+     - 8091:8091 # WebUI
 networks:
   zwave:
 volumes:
