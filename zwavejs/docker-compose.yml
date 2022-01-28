@@ -9,17 +9,17 @@ services:
       # like Docker Secretes
       - SESSION_SECRET=${CONF_ZWJS_SESSION_SECRET}
     networks:
-      - zwave
+      - homeassistant
     devices:
       - ${HW_USB_RF_ZWAVE}:/dev/zwave
     volumes:
       - ~/git/ha/zwavejs-config:/usr/src/app/store
     ports:
     # !Unsecured! 
-     - 3000:3000 # WS <-> HA
-     - 8091:8091 # WebUI
-networks:
-  zwave:
+    # - 3000:3000 # WS <-> HA
+      - 127.0.0.1:8091:8091 # WebUI
+    expose:
+      - 3000
 volumes:
   zwave-config:
     name: zwave-config
