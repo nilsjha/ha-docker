@@ -5,7 +5,7 @@ services:
     tty: true
     network_mode: "host"
     volumes:
-      - ~/git/ha/deconz-config:/root/.local/share/dresden-elektronik/deCONZ
+      - ~/git/ha/deconz-config:/opt/deCONZ
       - /run/udev:/run/udev:ro  # so that serial number vendor/product ids are known
     device_cgroup_rules:
       - 'c 166:* rmw' # allow creation of /dev/ttyACMx nodes via mknod
