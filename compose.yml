@@ -6,18 +6,19 @@ services:
     image: "ghcr.io/home-assistant/raspberrypi3-homeassistant:${DOCKER_IMAGE_HA_VER}"
 
   deconz:
-    depends_on:
-     - homeassistant
     restart: unless-stopped
     container_name: deconz
     image: deconzcommunity/deconz:${DOCKER_IMAGE_DECONZ_VER}
 
   zwavejs2mqtt:
-    depends_on:
-     - homeassistant 
     restart: unless-stopped
     container_name: zwavejs2mqtt
-    image: zwavejs/zwavejs2mqtt:${DOCKER_IMAGE_ZWJS_VER}
+    image: zwavejs/zwave-js-ui:${DOCKER_IMAGE_ZWJS_UI_VER}
+
+  esphome:
+    restart: unless-stopped
+    container_name: esphome
+    image: "ghcr.io/esphome/esphome:${DOCKER_IMAGE_ESPHOME_VER}"
 
 networks:
   homeassistant:

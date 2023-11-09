@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+  esphome:
+    volumes:
+      - type: bind
+        source: esphome-config
+        target: /config
+      - /etc/localtime:/etc/localtime:ro
+    restart: always
+    privileged: true
+    ports:
+      - "6052:6052"
+      - "8266:8266"
+    environment:
+      - USERNAME=${CONF_ESPHOME_USERNAME}
+      - PASSWORD=${CONF_ESPHOME_PASSWORD}

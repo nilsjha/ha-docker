@@ -4,6 +4,5 @@ docker-compose \
 	-f compose-ha.yml \
   -f compose-deconz.yml \
 	-f compose-zwavejs.yml \
-       	--env-file=.env \
-	up -d \
-	homeassistant 
+  --env-file=.env up \
+  -d

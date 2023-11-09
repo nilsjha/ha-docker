@@ -20,6 +20,8 @@ services:
       - 127.0.0.1:8091:8091 # WebUI
     expose:
       - 3000
+    security_opt:
+      - seccomp:unconfined
 volumes:
   zwave-config:
     name: zwave-config
