@@ -4,6 +4,7 @@ docker-compose \
 	-f compose-ha.yml \
   	-f compose-deconz.yml \
 	-f compose-zwavejs.yml \
+	-f compose-esphome.yml \
 	--env-file=.env up \
 	zwavejs2mqtt deconz \
 	-d
@@ -15,6 +16,7 @@ docker-compose \
 	-f compose-ha.yml \
   	-f compose-deconz.yml \
 	-f compose-zwavejs.yml \
+	-f compose-esphome.yml \
 	--env-file=.env up \
 	homeassistant \
 	-d
@@ -26,6 +28,7 @@ docker-compose \
 	-f compose-ha.yml \
 	-f compose-deconz.yml \
 	-f compose-zwavejs.yml \
+	-f compose-esphome.yml \
 	--env-file=.env up \
 	esphome \
 	-d
